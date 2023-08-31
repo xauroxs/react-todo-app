@@ -1,0 +1,40 @@
+.taskInputContainer {
+  margin: 10px auto;
+  padding: 10px;
+
+  position: relative;
+
+  background-color: #30313d;
+  border-radius: 10px;
+}
+
+.taskInput {
+  width: 100%;
+  height: 30px;
+
+  padding-right: 40px;
+
+  color: #e4e4e4;
+  font-size: 24px;
+
+  border: none;
+  outline: none;
+
+  background-color: #30313d;
+}
+
+.taskInputAdd {
+  position: absolute;
+
+  top: 5px;
+  right: 5px;
+
+  cursor: pointer;
+
+  svg {
+    width: 40px;
+    height: 40px;
+
+    fill: #61dafb;
+  }
+}
