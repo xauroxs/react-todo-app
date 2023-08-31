@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import TaskCard from "../components/task-card/task-card.component";
 import TaskInput from "../components/task-input/task-input.component";
@@ -6,8 +6,20 @@ import TaskInput from "../components/task-input/task-input.component";
 import "./app.styles.scss";
 
 const App = () => {
-  const [todos, setTodos] = useState([]);
-  const [lastId, setLastId] = useState(0);
+  const [todos, setTodos] = useState(
+    JSON.parse(localStorage.getItem("todos")) || []
+  );
+  const [lastId, setLastId] = useState(
+    parseInt(localStorage.getItem("lastId")) || 0
+  );
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
+
+  useEffect(() => {
+    localStorage.setItem("lastId", lastId);
+  }, [lastId]);
 
   const addTodo = (todo) => {
     setTodos((todos) => [...todos, todo]);
